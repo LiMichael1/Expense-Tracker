@@ -5,7 +5,7 @@ export const FormContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin: 220px 0 0 150px;
-  width: 30vw;
+  width: 30%;
 `;
 
 export const FormHeader = styled.h1`

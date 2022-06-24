@@ -18,6 +18,7 @@ import {
 
 import Link from "next/link";
 import Image from "next/image";
+import FormCheckbox from "../global/FormCheckbox";
 
 const signUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -31,7 +32,7 @@ const FormComponent = () => {
         <FormHeader>Welcome back</FormHeader>
         <FormSubHeader>Welcome back! Please enter your details</FormSubHeader>
         <Formik
-          initialValues={{ email: "", password: "" }}
+          initialValues={{ email: "", password: "", rememberUser: false }}
           validationSchema={signUpSchema}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
@@ -56,7 +57,9 @@ const FormComponent = () => {
             ></FormInputField>
             <br></br>
             <InlineContainer>
-              <p>hello test</p>
+              <FormCheckbox name="rememberUser">
+                Remember for 30 days
+              </FormCheckbox>
               <Link href="#">
                 <a>Forgot password</a>
               </Link>

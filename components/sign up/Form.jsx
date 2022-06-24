@@ -21,18 +21,21 @@ import Image from "next/image";
 import FormCheckbox from "../global/FormCheckbox";
 
 const signUpSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email").required("Required"),
+  email: Yup.string()
+    .email("Invalid email")
+    .required("Please enter a valid email"),
   password: Yup.string().required("Please enter your password"),
+  fullName: Yup.string().required("Please enter your full name"),
 });
 
-const SignInForm = () => {
+const SignUpForm = () => {
   return (
     <>
       <FormContainer>
-        <FormHeader>Welcome back</FormHeader>
+        <FormHeader>Create new account</FormHeader>
         <FormSubHeader>Welcome back! Please enter your details</FormSubHeader>
         <Formik
-          initialValues={{ email: "", password: "", rememberUser: false }}
+          initialValues={{ email: "", password: "", fullName: "" }}
           validationSchema={signUpSchema}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
@@ -42,6 +45,12 @@ const SignInForm = () => {
           }}
         >
           <Form style={{ width: "100%" }}>
+            <FormInputField
+              label="Full Name"
+              name="fullName"
+              type="text"
+              placeholder="Enter your full name"
+            ></FormInputField>
             <FormInputField
               label="Email"
               name="email"
@@ -56,15 +65,8 @@ const SignInForm = () => {
               placeholder="Enter your password"
             ></FormInputField>
             <br></br>
-            <InlineContainer>
-              <FormCheckbox name="rememberUser">
-                Remember for 30 days
-              </FormCheckbox>
-              <Link href="#">
-                <a>Forgot password</a>
-              </Link>
-            </InlineContainer>
-            <FormLimeButton>Sign In</FormLimeButton>
+
+            <FormLimeButton>Create Account</FormLimeButton>
             <FormGoogleButton>
               <div style={{ position: "absolute", left: "30%" }}>
                 <Image
@@ -77,9 +79,9 @@ const SignInForm = () => {
               Sign in with google
             </FormGoogleButton>
             <FormBottomContainer>
-              <span style={{ color: "#929EAE" }}>Dont have an account? </span>
-              <span style={{ fontWeight: "600" }}>Sign up for free</span>
-              <div style={{ position: "absolute", left: "57%" }}>
+              <span style={{ color: "#929EAE" }}>Already have an account?</span>
+              <span style={{ fontWeight: "600" }}>Sign in</span>
+              <div style={{ position: "absolute", left: "58%" }}>
                 <Image src="/arch.png" alt="Deco" width="98px" height="15px" />
               </div>
             </FormBottomContainer>
@@ -90,4 +92,4 @@ const SignInForm = () => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;

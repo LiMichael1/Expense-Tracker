@@ -9,6 +9,7 @@ import {
   FormHeader,
   FormSubHeader,
   InlineContainer,
+  WhiteSpace,
 } from "../styled/sign in/form";
 import {
   FormBottomContainer,
@@ -19,6 +20,8 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import FormCheckbox from "../global/FormCheckbox";
+
+import Logo from "../global/Logo/Logo";
 
 const signUpSchema = Yup.object().shape({
   email: Yup.string()
@@ -32,6 +35,8 @@ const SignUpForm = () => {
   return (
     <>
       <FormContainer>
+        <Logo></Logo>
+        <WhiteSpace></WhiteSpace>
         <FormHeader>Create new account</FormHeader>
         <FormSubHeader>Welcome back! Please enter your details</FormSubHeader>
         <Formik

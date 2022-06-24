@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const FormWarningMessage = styled.p`
   font-size: 1.1rem;
   color: #bf3b2c;
+  margin: -30px 0 30px 0;
 `;
 
 export const FormLimeButton = styled.button`

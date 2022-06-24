@@ -1,11 +1,10 @@
 import React from "react";
-
-import SignInForm from "../../components/sign in/Form";
+import SignUpForm from "../../components/sign up/Form";
 
 const index = () => {
   return (
     <div>
-      <SignInForm></SignInForm>
+      <SignUpForm></SignUpForm>
     </div>
   );
 };

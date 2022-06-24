@@ -1,0 +1,69 @@
+.sideBarContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100vh;
+  width: 20%;
+  background: #fafafa;
+}
+
+/* Top Side Bar */
+
+.topSideBar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin: 2rem 0;
+
+  height: 50vh;
+}
+
+.btnList {
+  margin-top: 1.5rem;
+}
+
+.sideBarBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 12.5rem;
+  height: 48px;
+
+  border-radius: 8px;
+  padding-left: 2rem;
+  margin-bottom: 0.1rem;
+
+  color: #929eae;
+}
+
+.sideBarBtn:hover,
+.LogOutBtn:hover {
+  opacity: 1;
+}
+
+.highlightBtn {
+  background: #c8ee44;
+  color: black;
+}
+
+.btnText {
+  margin-left: 1rem;
+}
+
+/* Bottom Side Bar */
+.bottomSideBar {
+  margin-bottom: 2rem;
+}
+
+.LogOutBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  opacity: 0.7;
+}

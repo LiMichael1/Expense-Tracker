@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 13.875rem;
+  height: 6.563rem;
+
+  background: #f8f8f8;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.container_S {
+  background-color: #363a3f;
+}
+
+.left {
+  position: relative;
+
+  margin-right: 2rem;
+}
+
+.descTxt {
+  color: #929eae;
+}
+
+.moneyTxt {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.moneyTxt_S {
+  color: white;
+}
+
+.icon {
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  z-index: 1;
+}
+
+.iconBg {
+  z-index: -1;
+}

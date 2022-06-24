@@ -1,5 +1,9 @@
+import SideBar from "../../components/global/SideBar/SideBar";
+
 export default function Expenses() {
-    return(
-        <h1>Expenses Page</h1>
-    )
+  return (
+    <>
+      <SideBar></SideBar>
+    </>
+  );
 }

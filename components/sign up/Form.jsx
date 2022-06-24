@@ -8,8 +8,6 @@ import {
   FormContainer,
   FormHeader,
   FormSubHeader,
-  InlineContainer,
-  WhiteSpace,
 } from "../styled/sign in/form";
 import {
   FormBottomContainer,
@@ -17,9 +15,7 @@ import {
   FormLimeButton,
 } from "../styled/global/globalStyles";
 
-import Link from "next/link";
 import Image from "next/image";
-import FormCheckbox from "../global/FormCheckbox";
 
 import Logo from "../global/Logo/Logo";
 
@@ -36,7 +32,6 @@ const SignUpForm = () => {
     <>
       <FormContainer>
         <Logo></Logo>
-        <WhiteSpace></WhiteSpace>
         <FormHeader>Create new account</FormHeader>
         <FormSubHeader>Welcome back! Please enter your details</FormSubHeader>
         <Formik

@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 13.875rem;
+  height: 6.563rem;
+  border-radius: 10px;
+
+  background: #f8f8f8;
+}
+
+.container_S {
+  background: #363a3f;
+}
+
+.left {
+  margin-right: 1rem;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  z-index: 2;
+  left: 30%;
+  top: 20%;
+}
+
+.iconBg {
+}
+
+.right {
+}
+
+.descTxt {
+  color: #989eae;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.moneyTxt {
+  color: black;
+
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+
+  margin-top: 0.5rem;
+}
+
+.moneyTxt_S {
+  color: white;
+}

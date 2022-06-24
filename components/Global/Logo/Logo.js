@@ -1,13 +1,19 @@
 import Image from 'next/image';
+
 import LogoImg from '../../../public/Logo.png';
+
 import styles from './Logo.module.css';
 
-function Logo() {
+export default function Logo() {
   return (
     <>
-      <Image src={LogoImg} alt='Logo' className={styles.Logo} />
+      <Image
+        src={LogoImg}
+        alt='Logo'
+        className={styles.Logo}
+        width={122}
+        height={30}
+      />
     </>
   );
 }
-
-export default Logo;

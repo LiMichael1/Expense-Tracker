@@ -1,28 +1,34 @@
-.sideBarContainer {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+
+  background-color: #fafafa;
 
   height: 100vh;
   width: 20%;
-  background: #fafafa;
 }
-
-/* Top Side Bar */
 
 .topSideBar {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
 
-  margin: 2rem 0;
+  padding-left: 2rem;
+  padding-top: 2rem;
 
-  height: 50vh;
+  width: 100%;
+  height: 50%;
 }
 
 .btnList {
-  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 1rem;
+  padding-top: 2rem;
 }
 
 .sideBarBtn {
@@ -32,38 +38,57 @@
   align-items: center;
 
   width: 12.5rem;
-  height: 48px;
-
+  height: 3rem;
   border-radius: 8px;
-  padding-left: 2rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.3rem;
 
-  color: #929eae;
+  padding-left: 1rem;
+
+  opacity: 0.7;
 }
 
-.sideBarBtn:hover,
-.LogOutBtn:hover {
+.sideBarBtn:hover {
   opacity: 1;
 }
 
 .highlightBtn {
   background: #c8ee44;
-  color: black;
+  opacity: 1;
 }
 
-.btnText {
-  margin-left: 1rem;
+.icon {
+  padding-left: 1rem;
 }
 
-/* Bottom Side Bar */
+.btnTxt {
+  padding-left: 1rem;
+
+  font-family: 'Kumbh Sans';
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .bottomSideBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+
+  width: 100%;
+  height: 50%;
+}
+
+.logOutBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  color: #989eae;
+
   margin-bottom: 2rem;
 }
 
-.LogOutBtn {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  opacity: 0.7;
+.logOutBtn:hover {
+  color: black;
 }

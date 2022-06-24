@@ -1,82 +1,95 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-
-import Logo from '../Logo/Logo';
+import Link from 'next/link';
 
 import styles from './SideBar.module.css';
 
-import DashboardIcon from '../../../public/Icons/Dashboard.png';
-import ExpensesIcon from '../../../public/Icons/Expenses.png';
-import SettingsIcon from '../../../public/Icons/Settings.png';
-import LogOutIcon from '../../../public/Icons/LogOut.png';
+import Logo from '../Logo/Logo';
 
-const SideBar = () => {
+import DashboardIcon from '../../../public/Icons/DashboardIcon.png';
+import ExpensesIcon from '../../../public/Icons/ExpensesIcon.png';
+import SettingsIcon from '../../../public/Icons/SettingsIcon.png';
+import LogOutIcon from '../../../public/Icons/LogOutIcon.png';
+
+/* 
+  Potentially use Styled Components inside of pure css
+*/
+
+export default function SideBar() {
   const route = useRouter().route;
 
-  const LogOut = (e) => {
+  const logOut = (e) => {
     e.preventDefault();
-    // Log Out
-    console.log('Sign Out');
+    console.log('Log Out');
   };
 
   return (
-    <div className={styles.sideBarContainer}>
-      {/* Top */}
+    <div className={styles.container}>
       <div className={styles.topSideBar}>
-        <Logo />
-
+        <Logo className={styles.logo} />
         <div className={styles.btnList}>
-          <Link href='/dashboard' className={styles.sideBarLink}>
+          <Link href='/dashboard'>
             <button
               className={
                 styles.sideBarBtn +
                 ` ${route === '/dashboard' ? styles.highlightBtn : ''}`
               }
-              id='DashboardBtn'
             >
-              <Image src={DashboardIcon} alt='Dashboard' />
-              <p className={styles.btnText}>Dashboard</p>
+              <Image
+                src={DashboardIcon}
+                alt='DashboardIcon'
+                className={styles.icon}
+              />
+              <p className={styles.btnTxt}>Dashboard</p>
             </button>
           </Link>
-          <Link href='/expenses' className={styles.sideBarLink}>
+
+          <Link href='/expenses'>
             <button
               className={
                 styles.sideBarBtn +
                 ` ${route === '/expenses' ? styles.highlightBtn : ''}`
               }
-              id='ExpensesBtn'
             >
-              <Image src={ExpensesIcon} alt='Expenses' />
-              <p className={styles.btnText}>Expenses</p>
+              <Image
+                src={ExpensesIcon}
+                alt='ExpensesIcon'
+                className={styles.icon}
+              />
+              <p className={styles.btnTxt}>Expenses</p>
             </button>
           </Link>
-          <Link href='/settings' className={styles.sideBarLink}>
+
+          <Link href='/settings'>
             <button
               className={
                 styles.sideBarBtn +
                 ` ${route === '/settings' ? styles.highlightBtn : ''}`
               }
-              id='SettingsBtn'
             >
-              <Image src={SettingsIcon} alt='Settings' />
-              <p className={styles.btnText}>Settings</p>
+              <Image
+                src={SettingsIcon}
+                alt='SettingsIcon'
+                className={styles.icon}
+              />
+              <p className={styles.btnTxt}>Settings</p>
             </button>
           </Link>
         </div>
       </div>
 
-      {/* Bottom */}
       <div className={styles.bottomSideBar}>
         <Link href='/api/auth/signout'>
-          <button onClick={(e) => LogOut(e)} className={styles.LogOutBtn}>
-            <Image src={LogOutIcon} alt='Log Out' />
-            <p className={styles.btnText}>Log Out</p>
+          <button className={styles.logOutBtn} onClick={(e) => logOut(e)}>
+            <Image
+              src={LogOutIcon}
+              alt='log out icon'
+              className={styles.icon}
+            />
+            <p className={styles.btnTxt}>Log Out</p>
           </button>
         </Link>
       </div>
     </div>
   );
-};
-
-export default SideBar;
+}

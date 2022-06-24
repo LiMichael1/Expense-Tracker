@@ -4,14 +4,14 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 220px 0 0 150px;
-  width: 30%;
+  width: 60%;
 `;
 
 export const FormHeader = styled.h1`
   font-weight: 600;
   font-size: 2.5rem;
   color: #1b212d;
+  margin-top: 12vh;
 `;
 
 export const FormSubHeader = styled.h2`
@@ -40,4 +40,8 @@ export const InlineContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-top: 10px;
+`;
+
+export const WhiteSpace = styled.div`
+  flex-grow: 10;
 `;

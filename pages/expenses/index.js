@@ -1,9 +1,9 @@
-import SideBar from "../../components/global/SideBar/SideBar";
+import Expenses from "../../components/expenses/Expenses";
 
-export default function Expenses() {
+export default function ExpensesPage() {
   return (
     <>
-      <SideBar></SideBar>
+      <Expenses></Expenses>
     </>
   );
 }

@@ -6,14 +6,8 @@ import styles from './Logo.module.css';
 
 export default function Logo() {
   return (
-    <>
-      <Image
-        src={LogoImg}
-        alt='Logo'
-        className={styles.Logo}
-        width={122}
-        height={30}
-      />
-    </>
+    <div>
+      <Image src={LogoImg} alt='Logo' className={styles.Logo} />
+    </div>
   );
 }

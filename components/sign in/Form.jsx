@@ -19,6 +19,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import FormCheckbox from "../global/FormCheckbox";
+import Logo from "../global/Logo/Logo";
 
 const signUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -29,6 +30,7 @@ const SignInForm = () => {
   return (
     <>
       <FormContainer>
+        <Logo></Logo>
         <FormHeader>Welcome back</FormHeader>
         <FormSubHeader>Welcome back! Please enter your details</FormSubHeader>
         <Formik

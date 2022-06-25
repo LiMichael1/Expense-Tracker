@@ -1,5 +1,9 @@
-export default function Expenses() {
-    return(
-        <h1>Expenses Page</h1>
-    )
+import Expenses from "../../components/expenses/Expenses";
+
+export default function ExpensesPage() {
+  return (
+    <>
+      <Expenses></Expenses>
+    </>
+  );
 }

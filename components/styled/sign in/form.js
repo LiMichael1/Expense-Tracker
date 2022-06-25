@@ -29,7 +29,7 @@ export const StyledInput = styled.input`
   color: #78778b;
   border: 2px solid #f2f2f2;
   border-radius: 10px;
-  padding: 15px 25px 16px 20px;
+  padding: 15px 25px 16px 50px;
   width: 100%;
   font-size: 1.15rem;
   margin-bottom: 30px;

@@ -7,6 +7,7 @@ import {
 } from "../styled/settings/settings";
 import FormInputFieldWithIcon from "../global/FormInputFieldWithIcon";
 import FormInputField from "../global/FormInputField";
+import FormDatePicker from "../global/FormDatePicker";
 
 const SettingsMainForm = ({ change }) => {
   return (
@@ -17,10 +18,11 @@ const SettingsMainForm = ({ change }) => {
           lastName: "",
           password: "",
           confirmPassword: "",
+          date: "",
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            alert(values, null, 2);
+            console.log({ values }, null, 2);
             setSubmitting(false);
           }, 500);
         }}
@@ -42,6 +44,25 @@ const SettingsMainForm = ({ change }) => {
                 name="lastName"
                 type="text"
                 placeholder="Enter your last name"
+                readOnly={change}
+              ></FormInputField>
+            </div>
+          </SettingsMainInlineWrapper>
+          <SettingsMainInlineWrapper>
+            <div style={{ width: "100%" }}>
+              <FormDatePicker
+                name="date"
+                label="Date of Birth"
+                readOnly={change}
+              ></FormDatePicker>
+            </div>
+            <div style={{ width: "100%" }}>
+              <FormInputField
+                label="Mobile Number"
+                name="mobileNumber"
+                type="text"
+                placeholder="Enter your mobile number"
+                readOnly={change}
               ></FormInputField>
             </div>
           </SettingsMainInlineWrapper>
@@ -53,6 +74,7 @@ const SettingsMainForm = ({ change }) => {
                 type="text"
                 image="email icon"
                 placeholder="Enter your email"
+                readOnly={change}
               ></FormInputFieldWithIcon>
             </div>
           </SettingsMainInlineWrapper>
@@ -64,6 +86,7 @@ const SettingsMainForm = ({ change }) => {
                 type="password"
                 image="lock icon"
                 placeholder="Enter your password"
+                readOnly={change}
               ></FormInputFieldWithIcon>
             </div>
             <div style={{ width: "100%" }}>
@@ -73,6 +96,7 @@ const SettingsMainForm = ({ change }) => {
                 type="password"
                 image="lock icon"
                 placeholder="Confirm your password"
+                readOnly={change}
               ></FormInputFieldWithIcon>
             </div>
           </SettingsMainInlineWrapper>

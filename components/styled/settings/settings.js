@@ -38,3 +38,11 @@ export const SettingsMainEditButton = styled.div`
 export const SettingsMainSpan = styled.div``;
 
 //div
+
+export const UpdateButton = styled.button`
+  padding: 25px 50px;
+  color: white;
+  background-color: #29a073;
+  font-weight: 600;
+  border-radius: 10px;
+`;

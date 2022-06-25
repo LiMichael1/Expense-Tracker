@@ -46,7 +46,11 @@ const SettingsMain = () => {
               </span>
             </SettingsMainEditButton>
           </div>
-          {isEditMode ? <SettingsMainForm></SettingsMainForm> : <p>not edit</p>}
+          {isEditMode ? (
+            <SettingsMainForm change={null}></SettingsMainForm>
+          ) : (
+            <SettingsMainForm change={"readonly"}></SettingsMainForm>
+          )}
         </SettingsMainFlexWrapper>
       </SettingsMainWrapper>
     </>

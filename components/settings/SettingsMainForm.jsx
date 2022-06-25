@@ -1,11 +1,14 @@
 import React from "react";
 
 import { Formik, Form } from "formik";
-import { SettingsMainInlineWrapper } from "../styled/settings/settings";
+import {
+  SettingsMainInlineWrapper,
+  UpdateButton,
+} from "../styled/settings/settings";
 import FormInputFieldWithIcon from "../global/FormInputFieldWithIcon";
 import FormInputField from "../global/FormInputField";
 
-const SettingsMainForm = () => {
+const SettingsMainForm = ({ change }) => {
   return (
     <>
       <Formik
@@ -30,6 +33,7 @@ const SettingsMainForm = () => {
                 name="firstName"
                 type="text"
                 placeholder="Enter your first name"
+                readOnly={change}
               ></FormInputField>
             </div>
             <div style={{ width: "100%" }}>
@@ -72,6 +76,9 @@ const SettingsMainForm = () => {
               ></FormInputFieldWithIcon>
             </div>
           </SettingsMainInlineWrapper>
+          {change === "readonly" ? null : (
+            <UpdateButton type="submit">Update</UpdateButton>
+          )}
         </Form>
       </Formik>
     </>

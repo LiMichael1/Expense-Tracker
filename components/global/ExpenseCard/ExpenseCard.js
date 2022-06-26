@@ -8,12 +8,16 @@ import CardIcon_S from '../../../public/icons/ExpenseCardIcon_S.png';
 import CardIconBg from '../../../public/Icons/ExpenseCardIconBg.png';
 import CardIconBg_S from '../../../public/Icons/ExpenseCardIconBg_S.png';
 
-export default function ExpenseCard({ selected = false }) {
+export default function ExpenseCard({
+  selected = false,
+  descText = 'Monthly Spending',
+  amount = 250.0,
+}) {
   const [select, setSelected] = useState(selected);
 
   const [cardInfo, setCardInfo] = useState({
-    descTxt: 'Monthly Spending',
-    money: 250.8,
+    descTxt: descText,
+    money: amount,
   });
 
   return (

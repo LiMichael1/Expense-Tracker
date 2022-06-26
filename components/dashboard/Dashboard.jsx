@@ -1,4 +1,5 @@
 import React from "react";
+import GlobalExpenseWrapperHeader from "../global/GlobalExpenseWrapperHeader";
 import Navbar from "../global/Navbar";
 import SideBar from "../global/SideBar/SideBar";
 import {
@@ -27,7 +28,11 @@ const Dashboard = () => {
               <DashboardGraph></DashboardGraph>
               <DashboardRecentExpenses></DashboardRecentExpenses>
             </DashboardMainContent>
-            <DashboardRecurringExpensesWrapper></DashboardRecurringExpensesWrapper>
+            <DashboardRecurringExpensesWrapper>
+              <GlobalExpenseWrapperHeader>
+                Recurring Expenses
+              </GlobalExpenseWrapperHeader>
+            </DashboardRecurringExpensesWrapper>
           </DashboardHeroWrapper>
         </MainContentContainer>
       </GlobalPageContainer>

@@ -1,0 +1,47 @@
+.tableContainer p {
+  font-family: 'Kumbh Sans';
+  font-size: 14px;
+}
+
+.ExpenseNameContainer {
+  display: flex;
+}
+
+.ExpenseImg {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.lightTxt {
+  color: #989eae;
+}
+
+.headerRow p {
+  color: #989eae;
+}
+
+/* --------*/
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.headerTxt {
+  margin-left: 2rem;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  color: black;
+}
+
+.header_btn {
+  color: #29a073;
+  opacity: 0.8;
+  transition: 0.3s ease-in;
+  margin-right: 2rem;
+}

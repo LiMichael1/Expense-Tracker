@@ -54,7 +54,12 @@ export default function AllExpenseRow({ row = defaultState, editRow }) {
         <p>{row.type}</p>
       </TableCell>
       <TableCell>
-        <p className={styles.boldTxt}>${row.amount.toFixed(2)}</p>
+        <p className={styles.boldTxt}>
+          {row.amount.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+          })}
+        </p>
       </TableCell>
       <TableCell>
         <p className={styles.boldTxt}>

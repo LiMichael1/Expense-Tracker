@@ -38,7 +38,12 @@ export default function RecentExpenseRow({ row }) {
         <p className={styles.lightTxt}>{row.type}</p>
       </TableCell>
       <TableCell align='left'>
-        <p className={styles.boldTxt}>${row.amount.toFixed(2)}</p>
+        <p className={styles.boldTxt}>
+          {row.amount.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+          })}
+        </p>
       </TableCell>
       <TableCell align='left'>
         <p className={styles.lightTxt}>

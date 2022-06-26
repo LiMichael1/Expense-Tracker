@@ -14,6 +14,8 @@ import {
   FormFileUploadButton,
 } from '../styled/modal/AddExpense';
 
+import FormDatePicker from './../global/FormDatePicker';
+
 import FileUploadIcon from '../../public/Icons/FileUploadIcon.png';
 
 const addExpenseSchema = Yup.object().shape({});
@@ -75,19 +77,21 @@ export default function AddExpense() {
               placeholder='Type'
               style={{ height: '52px' }}
             />
-            <FormInputField
-              name='date'
-              type='date'
-              placeholder='date'
-              style={{ height: '52px', display: 'inline-block', width: '60%' }}
-            />
+            <div
+              style={{ height: '52px', width: '60%', display: 'inline-block' }}
+            >
+              <FormDatePicker name='date' placeholder='Date' />
+            </div>
 
             <FormCheckBox name='recurring' style={{ margin: '0 0 0 20px' }}>
               {' '}
               Recurring
             </FormCheckBox>
 
-            <FormFileUploadButton htmlFor='imageUpload'>
+            <FormFileUploadButton
+              htmlFor='imageUpload'
+              style={{ marginTop: '2rem' }}
+            >
               <FormInputField
                 name='image'
                 type='file'

@@ -82,7 +82,7 @@ export default function RecentExpenses({ data = [] }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.header}>
         <h1 className={styles.headerTxt}>Recent Expenses</h1>
         <Link href='/expenses'>
@@ -125,7 +125,7 @@ export default function RecentExpenses({ data = [] }) {
                       </div>
                       <div>
                         <p>{row.name}</p>
-                        <p className={styles.lightTxt}>{row.business}</p>
+                        <p className={styles.lightTxt + ' ' + styles.businessTxt}>{row.business}</p>
                       </div>
                     </div>
                   </TableCell>

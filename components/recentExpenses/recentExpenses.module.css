@@ -1,3 +1,6 @@
+.container {
+}
+
 .tableContainer p {
   font-family: 'Kumbh Sans';
   font-size: 14px;
@@ -21,6 +24,10 @@
 
 .headerRow p {
   color: #989eae;
+}
+
+.businessTxt {
+  font-size: 12px;
 }
 
 /* --------*/

@@ -3,14 +3,17 @@ import { useFormikContext, useField } from "formik";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { InputLabel } from "../styled/sign in/form";
+import { DatePickerStyle } from "../styled/global/formdatepicker";
+
 const FormDatePicker = (props) => {
   const { setFieldValue } = useFormikContext();
   const [field] = useField(props);
   return (
     <>
+      <DatePickerStyle />
       <InputLabel htmlFor={props.name}>{props.label}</InputLabel>
       <DatePicker
-        style={{ width: "100%", padding: "100px" }}
+        wrapperClassName="date_picker full-width"
         {...field}
         {...props}
         selected={(field.value && new Date(field.value)) || null}

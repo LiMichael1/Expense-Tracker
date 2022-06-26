@@ -22,3 +22,15 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.react-datepicker__input-container input {
+  display: block;
+  width: 100%;
+  padding: 15px 25px 16px 50px;
+  border-radius: 10px;
+  font-size: 1.15rem;
+}
+
+.react-datepicker__input-container {
+  border: 2px solid #f2f2f2;
+}

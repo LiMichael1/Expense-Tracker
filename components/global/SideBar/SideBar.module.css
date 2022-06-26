@@ -5,8 +5,14 @@
   align-items: flex-start;
   background-color: #fafafa;
   float: left;
-  height: 100vh;
+
+  min-height: 100vh;
+
   width: fit-content;
+}
+
+.container::after {
+  display: t;
 }
 
 .topSideBar {
@@ -60,7 +66,7 @@
 .btnTxt {
   padding-left: 1rem;
 
-  font-family: "Kumbh Sans";
+  font-family: 'Kumbh Sans';
   font-size: 14px;
   font-weight: 600;
 }

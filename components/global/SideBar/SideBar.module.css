@@ -5,14 +5,9 @@
   align-items: flex-start;
   background-color: #fafafa;
   float: left;
-
   min-height: 100vh;
 
   width: fit-content;
-}
-
-.container::after {
-  display: t;
 }
 
 .topSideBar {

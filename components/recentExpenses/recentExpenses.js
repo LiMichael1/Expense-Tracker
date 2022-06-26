@@ -12,6 +12,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './recentExpenses.module.css';
+import RecentExpenseRow from './recentExpenseRow';
 // sample
 import Iphone from '../../public/ExpensePhotos/Iphone13.png';
 import Netflix from '../../public/ExpensePhotos/Netflix.png';
@@ -111,38 +112,7 @@ export default function RecentExpenses({ data = [] }) {
           </TableHead>
           <TableBody>
             {recentData.map((row, index) => {
-              return (
-                <TableRow key={index}>
-                  <TableCell align='left'>
-                    <div className={styles.ExpenseNameContainer}>
-                      <div className={styles.ExpenseImg}>
-                        <Image
-                          src={row.img}
-                          alt={row.business}
-                          width={40}
-                          height={40}
-                        />
-                      </div>
-                      <div>
-                        <p>{row.name}</p>
-                        <p className={styles.lightTxt + ' ' + styles.businessTxt}>{row.business}</p>
-                      </div>
-                    </div>
-                  </TableCell>
-                  <TableCell align='left'>
-                    <p className={styles.lightTxt}>{row.type}</p>
-                  </TableCell>
-                  <TableCell align='left'>
-                    <p>${row.amount.toFixed(2)}</p>
-                  </TableCell>
-                  <TableCell align='left'>
-                    <p className={styles.lightTxt}>
-                      {row.date.getDate()}-{monthNames[row.date.getMonth()]}-
-                      {row.date.getFullYear()}
-                    </p>
-                  </TableCell>
-                </TableRow>
-              );
+              return <RecentExpenseRow row={row} key={index} />;
             })}
           </TableBody>
         </Table>

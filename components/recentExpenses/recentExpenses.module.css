@@ -1,9 +1,9 @@
 .container {
+  margin-top: 1rem;
 }
 
 .tableContainer p {
-  font-family: 'Kumbh Sans';
-  font-size: 14px;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 
 .ExpenseNameContainer {
@@ -28,6 +28,10 @@
 
 .businessTxt {
   font-size: 12px;
+}
+
+.boldTxt {
+  font-weight: 600;
 }
 
 /* --------*/

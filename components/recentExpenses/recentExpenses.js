@@ -13,59 +13,9 @@ import Link from 'next/link';
 
 import styles from './recentExpenses.module.css';
 import RecentExpenseRow from './recentExpenseRow';
-// sample
-import Iphone from '../../public/ExpensePhotos/Iphone13.png';
-import Netflix from '../../public/ExpensePhotos/Netflix.png';
-import Figma from '../../public/ExpensePhotos/Figma.png';
-
-function createRow(id, name, business, type, amount, date, img) {
-  return { id, name, business, type, amount, date, img };
-}
-
-const rows = [
-  createRow(
-    1,
-    'Iphone 13 Pro MAX',
-    'Apple Inc',
-    'Mobile',
-    420.84,
-    new Date('2022-07-12'),
-    Iphone
-  ),
-  createRow(
-    2,
-    'Netflix Subscription',
-    'Netflix',
-    'Entertainment',
-    100.0,
-    new Date('2022-04-05'),
-    Netflix
-  ),
-  createRow(
-    3,
-    'Figma Subscription',
-    'Figma Inc',
-    'Software',
-    244.2,
-    new Date('2022-04-02'),
-    Figma
-  ),
-];
 
 export default function RecentExpenses({ data = [] }) {
-  const [recentData, setRecentData] = useState([]);
-
-  useEffect(() => {
-    const fetchRecentExpenses = () => {
-      console.log(rows);
-      data.length === 0
-        ? setRecentData(rows)
-        : setRecentData(data.splice(0, 3));
-      console.log('Recent Expenses Data', recentData);
-    };
-
-    fetchRecentExpenses();
-  }, []);
+  const [recentData, setRecentData] = useState(data);
 
   return (
     <div className={styles.container}>

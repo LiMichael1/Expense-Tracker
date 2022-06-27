@@ -15,21 +15,8 @@ import styles from './recurExpenses.module.css';
 
 import RecurExpenseRow from './recurExpenseRow';
 
-import Netflix from '../../public/ExpensePhotos/Netflix.png';
-import styledEngine from '@mui/styled-engine';
-
-function createRow(img, name, business, amount) {
-  return { img, name, business, amount };
-}
-
-const rows = [createRow(Netflix, 'Netflix Subscription', 'Netflix', -121.21)];
-
 export default function RecurExpenses({ data = [] }) {
-  const [recurExpenses, setRecurExpenses] = useState(
-    data.length == 0 ? rows : data
-  );
-
-  console.log(rows[0].img);
+  const [recurExpenses, setRecurExpenses] = useState(data);
 
   return (
     <div className={styles.container}>

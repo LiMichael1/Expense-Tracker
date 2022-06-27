@@ -16,16 +16,8 @@ import AllExpenseRow from './allExpenseRow';
 import EditExpense from '../editExpenseModal/editExpenseModal';
 import AddExpense from '../addExpenseModal/AddExpenseModal';
 
-import Iphone from '../../public/ExpensePhotos/Iphone13.png';
-import Netflix from '../../public/ExpensePhotos/Netflix.png';
-import Figma from '../../public/ExpensePhotos/Figma.png';
-
-function createRow(img, name, business, type, amount, date, invoice_id) {
-  return { img, name, business, type, amount, date, invoice_id };
-}
-
 export default function AllExpenses({ data = [] }) {
-  const [allExpenses, setAllExpenses] = useState([]);
+  const [allExpenses, setAllExpenses] = useState(data);
   const [editModal, setEditModal] = useState({
     isOpen: false,
     data: {},
@@ -34,45 +26,6 @@ export default function AllExpenses({ data = [] }) {
     isOpen: false,
     data: {},
   });
-
-  const rows = [
-    createRow(
-      Iphone,
-      'Iphone 13 Pro MAX',
-      'Apple Inc.',
-      'Mobile',
-      420.84,
-      new Date('2002-12-21'),
-      'MGL0124877'
-    ),
-    createRow(
-      Netflix,
-      'Netflix Subscription',
-      'Netflix',
-      'Entertainment',
-      100.0,
-      new Date('2002-04-05'),
-      'MGL0124877'
-    ),
-    createRow(
-      Figma,
-      'Figma Subscription',
-      'Figma Inc.',
-      'Software',
-      244.2,
-      new Date('2002-04-02'),
-      'MGL0124877'
-    ),
-  ];
-
-  useEffect(() => {
-    const fetchAllExpenses = () => {
-      console.log(data.length);
-      data.length === 0 ? setAllExpenses(rows) : setAllExpenses(data);
-    };
-
-    fetchAllExpenses();
-  }, []);
 
   const handleEdit = (row) => {
     setEditModal({

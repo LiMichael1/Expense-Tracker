@@ -14,6 +14,7 @@ const FormDatePicker = (props) => {
       <InputLabel htmlFor={props.name}>{props.label}</InputLabel>
       <DatePicker
         wrapperClassName="date_picker full-width"
+        alt="Select your birth date"
         {...field}
         {...props}
         selected={(field.value && new Date(field.value)) || null}

@@ -18,7 +18,7 @@ const SettingsMainForm = ({ change }) => {
           lastName: "",
           password: "",
           confirmPassword: "",
-          date: "",
+          date: Date.now(),
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {

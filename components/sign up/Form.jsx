@@ -39,7 +39,7 @@ const SignUpForm = () => {
           validationSchema={signUpSchema}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
-              alert(values, null, 2);
+              console.log(values);
               setSubmitting(false);
             }, 500);
           }}

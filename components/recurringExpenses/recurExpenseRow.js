@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { TableRow, TableCell } from '@mui/material';
+import Image from "next/image";
+import { TableRow, TableCell } from "@mui/material";
 
-import styles from './recurExpenses.module.css';
+import styles from "./recurExpenses.module.css";
 
 export default function RecurExpenseRow({ row }) {
   return (
@@ -19,9 +19,9 @@ export default function RecurExpenseRow({ row }) {
 
       <TableCell>
         <p className={styles.boldTxt}>
-          {row.amount.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD',
+          {row.amount.toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
           })}
         </p>
       </TableCell>

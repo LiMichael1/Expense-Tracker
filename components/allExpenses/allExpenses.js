@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import {
   Table,
   TableBody,
@@ -7,14 +7,14 @@ import {
   Paper,
   TableCell,
   TableRow,
-} from '@mui/material';
+} from "@mui/material";
 
-import styles from './allExpenses.module.css';
+import styles from "./allExpenses.module.css";
 
-import AllExpenseRow from './allExpenseRow';
+import AllExpenseRow from "./allExpenseRow";
 
-import EditExpense from '../editExpenseModal/editExpenseModal';
-import AddExpense from '../addExpenseModal/AddExpenseModal';
+import EditExpense from "../editExpenseModal/editExpenseModal";
+import AddExpense from "../addExpenseModal/AddExpenseModal";
 
 export default function AllExpenses({ data = [] }) {
   const [allExpenses, setAllExpenses] = useState(data);
@@ -53,7 +53,7 @@ export default function AllExpenses({ data = [] }) {
         Create Expense
       </button>
       <TableContainer component={Paper} className={styles.tableContainer}>
-        <Table aria-label='All Expenses'>
+        <Table aria-label="All Expenses">
           <TableHead>
             <TableRow className={styles.headerRow}>
               <TableCell>

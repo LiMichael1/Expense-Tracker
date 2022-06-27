@@ -10,6 +10,7 @@
   align-items: center;
 
   transition: 0.3s ease-out;
+  z-index: 10;
 }
 
 .modalBg {
@@ -18,7 +19,7 @@
 
   background-color: rgba(0, 0, 0, 0.5);
 
-  z-index: 2;
+  z-index: 20;
 }
 
 .modalContainer {
@@ -35,7 +36,7 @@
   justify-content: center;
   align-items: flex-start;
 
-  z-index: 3;
+  z-index: 30;
 }
 
 .display_none {

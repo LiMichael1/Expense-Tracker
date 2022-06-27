@@ -20,7 +20,7 @@ import FileUploadIcon from '../../public/Icons/FileUploadIcon.png';
 
 const addExpenseSchema = Yup.object().shape({});
 
-export default function AddExpense() {
+export default function AddExpense({ isOpen, close }) {
   const [fileUploadImg, setFileUploadImg] = useState(null);
 
   const initialValues = {
@@ -43,7 +43,7 @@ export default function AddExpense() {
   };
 
   return (
-    <Modal isOpen={true}>
+    <Modal isOpen={isOpen} close={close}>
       <FormContainer>
         <Formik
           initialValues={initialValues}
@@ -66,9 +66,9 @@ export default function AddExpense() {
               name='amount'
               type='number'
               placeholder='Amount'
-              min='0.00'
+              min='-100000.00'
               max='100000.00'
-              step='0.01'
+              step='0.05'
               style={{ height: '52px' }}
             />
             <FormInputField

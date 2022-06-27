@@ -1,3 +1,6 @@
+.container {
+}
+
 .tableContainer {
   font-size: 14px;
 }
@@ -39,4 +42,13 @@
 
 .editBtn:hover {
   opacity: 1;
+}
+
+.createBtn {
+  padding: 14px 20px 14px 20px;
+  background: #c8ee44;
+  border-radius: 10px;
+
+  float: right;
+  margin-right: 2rem;
 }

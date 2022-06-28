@@ -19,6 +19,8 @@ import Image from "next/image";
 
 import Logo from "../global/Logo/Logo";
 
+import { signUpFBTest, subscribeToUserChanges } from "../../firebase/firebase";
+
 const signUpSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email")
@@ -35,11 +37,11 @@ const SignUpForm = () => {
         <FormHeader>Create new account</FormHeader>
         <FormSubHeader>Welcome back! Please enter your details</FormSubHeader>
         <Formik
-          initialValues={{ email: "", password: "", fullName: "" }}
+          initialValues={{ fullName: "", password: "", email: "" }}
           validationSchema={signUpSchema}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
-              console.log(values);
+              signUpFBTest(values);
               setSubmitting(false);
             }, 500);
           }}

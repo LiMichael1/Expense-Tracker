@@ -1,8 +1,9 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { useState } from "react";
 import { Formik, Form } from "formik";
 import FormInputField from "../global/FormInputField";
 import * as Yup from "yup";
+import { signInFBTest } from "../../firebase/firebase";
 
 import {
   FormContainer,
@@ -25,7 +26,7 @@ const signUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string().required("Please enter your password"),
 });
-
+import { userContext } from "../../pages/_app";
 const SignInForm = () => {
   return (
     <>
@@ -37,10 +38,8 @@ const SignInForm = () => {
           initialValues={{ email: "", password: "", rememberUser: false }}
           validationSchema={signUpSchema}
           onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(values, null, 2);
-              setSubmitting(false);
-            }, 500);
+            signInFBTest(values);
+            setSubmitting(false);
           }}
         >
           <Form style={{ width: "100%" }}>

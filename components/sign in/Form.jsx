@@ -21,6 +21,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FormCheckbox from "../global/FormCheckbox";
 import Logo from "../global/Logo/Logo";
+import { useRouter } from "next/router";
 
 const signUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -28,6 +29,7 @@ const signUpSchema = Yup.object().shape({
 });
 import { userContext } from "../../pages/_app";
 const SignInForm = () => {
+  const router = useRouter();
   return (
     <>
       <FormContainer>
@@ -39,7 +41,6 @@ const SignInForm = () => {
           validationSchema={signUpSchema}
           onSubmit={(values, { setSubmitting }) => {
             signInFBTest(values);
-            setSubmitting(false);
           }}
         >
           <Form style={{ width: "100%" }}>

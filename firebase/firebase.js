@@ -44,8 +44,11 @@ export const signInFBTest = async ({ email, password }) => {
   }
 };
 
-export const subscribeToUserChanges = (setCurrentUser) => {
+export const subscribeToUserChanges = (setCurrentUser, setLoading) => {
   return onAuthStateChanged(auth, (currentUser) => {
-    setCurrentUser(currentUser);
+    if (currentUser) setCurrentUser(currentUser.email);
+    else setCurrentUser(null);
+
+    setLoading(false);
   });
 };

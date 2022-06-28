@@ -7,8 +7,20 @@ import { MainContentContainer } from "../styled/global/globalStyles";
 import AllExpenses from "../allExpenses/allExpenses";
 
 import { defaultExpenseData } from "../global/DefaultData/defaultExpenses";
+import { userContext } from "../../pages/_app";
+import { useContext, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Expenses = () => {
+  const { currentUser } = useContext(userContext);
+  const c = currentUser;
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!currentUser) router.push("/sign-in");
+  }, [currentUser, router]);
+
+  if (!c) return <div></div>;
   return (
     <>
       <GlobalPageContainer>

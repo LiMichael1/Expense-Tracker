@@ -20,30 +20,31 @@ import { useContext } from "react";
 import { useRouter } from "next/router";
 
 const Dashboard = () => {
-  const user = useContext(userContext);
+  const { currentUser } = useContext(userContext);
+  const c = currentUser;
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) {
-      router.push("/sign-in");
-    }
-  }, [router, user]);
+    if (!currentUser) router.push("/sign-in");
+  }, [currentUser, router]);
+
+  if (!c) return <div></div>;
 
   return (
     <>
-      {user ? (
-        <GlobalPageContainer>
-          <SideBar></SideBar>
-          <MainContentContainer>
-            <Navbar></Navbar>
-            {/* GRAPH HERE */}
-            <RecentExpenses data={defaultExpenseData} />
-          </MainContentContainer>
-          <div style={{ width: "30%" }}>
-            <RecurExpenses data={defaultRecurExpenseData} />
-          </div>
-        </GlobalPageContainer>
-      ) : null}
+      (
+      <GlobalPageContainer>
+        <SideBar></SideBar>
+        <MainContentContainer>
+          <Navbar></Navbar>
+          {/* GRAPH HERE */}
+          <RecentExpenses data={defaultExpenseData} />
+        </MainContentContainer>
+        <div style={{ width: "30%" }}>
+          <RecurExpenses data={defaultRecurExpenseData} />
+        </div>
+      </GlobalPageContainer>
+      )
     </>
   );
 };

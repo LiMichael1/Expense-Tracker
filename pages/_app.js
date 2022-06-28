@@ -4,16 +4,16 @@ import { subscribeToUserChanges } from "../firebase/firebase";
 export const userContext = createContext();
 function MyApp({ Component, pageProps }) {
   const [currentUser, setCurrentUser2] = useState();
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const unsubscribe = subscribeToUserChanges(setCurrentUser2);
+    const unsubscribe = subscribeToUserChanges(setCurrentUser2, setLoading);
     return () => unsubscribe();
   }, []);
 
   return (
     <>
-      <userContext.Provider value={currentUser}>
-        <Component {...pageProps} />
+      <userContext.Provider value={{ currentUser, loading }}>
+        {loading ? null : <Component {...pageProps} />}
       </userContext.Provider>
     </>
   );

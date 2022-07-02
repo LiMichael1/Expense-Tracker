@@ -3,11 +3,11 @@ import Navbar from "../global/Navbar";
 import SideBar from "../global/SideBar/SideBar";
 import RecentExpenses from "../recentExpenses/recentExpenses";
 import RecurExpenses from "./../recurringExpenses/recurExpenses";
-
 import {
   GlobalPageContainer,
   MainContentContainer,
 } from "../styled/global/globalStyles";
+import LineChart from "./LineChart";
 
 // Sample Data for the tables
 import {
@@ -22,7 +22,7 @@ const Dashboard = () => {
         <SideBar></SideBar>
         <MainContentContainer>
           <Navbar></Navbar>
-          {/* GRAPH HERE */}
+          <LineChart />
           <RecentExpenses data={defaultExpenseData} />
         </MainContentContainer>
         <div style={{ width: "30%" }}>

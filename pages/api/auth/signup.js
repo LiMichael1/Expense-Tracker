@@ -17,7 +17,7 @@ export default async (req, res) => {
 
       if (!email || !password) {
         const error = !email ? 'No Email' : 'No Password';
-        res.status(400).json({ success: false, error });
+        return res.status(400).json({ success: false, error });
       }
 
       const response = await createUserWithEmailAndPassword(
@@ -37,7 +37,7 @@ export default async (req, res) => {
         // Default Initial Account Settings
         firstName,
         lastName,
-        birthDate: new Date(),
+        birthDate: new Date().valueOf(),
         mobileNumber: '',
       };
 
@@ -59,14 +59,14 @@ export default async (req, res) => {
         },
         (err, token) => {
           if (err) throw err;
-          res.status(201).json({ token });
+          return res.status(201).json({ token });
         }
       );
     } catch (err) {
-      res.status(500).json({ success: false, error: err.message });
+      return res.status(500).json({ success: false, error: err.message });
     }
   } else {
-    res.staus(405).send('Wrong Method. Requires a POST method');
+    return res.staus(405).send('Wrong Method. Requires a POST method');
   }
 };
 

@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 import { auth } from '../../../firebase/firebase';
 
@@ -37,7 +37,7 @@ export default async (req, res) => {
         },
         (err, token) => {
           if (err) throw err;
-          res.status(201).json({ token });
+          return res.status(201).json({ token });
         }
       );
     } catch (err) {

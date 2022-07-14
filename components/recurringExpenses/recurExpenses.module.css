@@ -1,10 +1,13 @@
 /* Row */
 .nameContainer {
   display: flex;
+  align-items: center;
 }
 
 .img {
   margin-right: 1rem;
+  width: 40px;
+  height: 40px;
 }
 
 .boldTxt {
@@ -37,7 +40,7 @@
 .headerBtn {
   color: #29a073;
 
-  margin-right: 1rem;
+  margin-right: 2rem;
 
   transition: 0.2s ease-in-out;
 }

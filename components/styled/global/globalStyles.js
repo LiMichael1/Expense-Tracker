@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FormWarningMessage = styled.p`
   font-size: 1.1rem;
@@ -41,6 +41,6 @@ export const GlobalPageContainer = styled.div`
 export const MainContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin: 0 5vw;
+  width: ${(props) => (props.width ? props.width : '100%')};
+  margin: 0;
 `;

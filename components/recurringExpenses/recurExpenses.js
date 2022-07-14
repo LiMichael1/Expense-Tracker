@@ -24,7 +24,7 @@ export default function RecurExpenses({ data = [] }) {
         <h1 className={styles.headerTxt}>Recurring Expenses</h1>
         <Link href='/expenses'>
           <a>
-            <p className={styles.headerBtn}>View All {' >'}</p>
+            <p className={styles.headerBtn}>View All {'>'}</p>
           </a>
         </Link>
       </div>

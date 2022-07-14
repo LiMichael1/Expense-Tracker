@@ -17,7 +17,13 @@ import {
   endAt,
 } from 'firebase/firestore';
 
+import { Authentication_Middleware } from '../../../middleware/authenticate';
+import userQuery from '../../../middleware/userQuery';
+
 export default async function handler(req, res) {
+  // Check if User is Authenticated
+  Authentication_Middleware(req, res);
+
   const expRef = collection(db, 'expenses');
   if (req.method === 'GET') {
     // TODO: ADD AUTHENTICATION
@@ -25,14 +31,25 @@ export default async function handler(req, res) {
 
     let q;
 
+    let user_id = req.user.id;
+
     try {
       switch (page) {
         case 'recent':
-          q = query(expRef, orderBy('date', 'desc'), limit(3));
+          q = query(
+            expRef,
+            where('user_id', '==', user_id),
+            orderBy('date', 'desc'),
+            limit(3)
+          );
           break;
 
         case 'recur':
-          q = query(expRef, where('recur', '==', true));
+          q = query(
+            expRef,
+            where('user_id', '==', user_id),
+            where('recur', '==', true)
+          );
           break;
 
         case 'timeFrame':
@@ -53,18 +70,23 @@ export default async function handler(req, res) {
 
           q = query(
             expRef,
-            orderBy('date'),
-            startAt(startDate),
-            endAt(endDate)
+            where('user_id', '==', user_id),
+            where('date', '>', startDate),
+            orderBy('date', 'desc')
           );
           break;
 
         default:
-          q = query(expRef, orderBy('date', 'desc'));
+          q = query(
+            expRef,
+            where('user_id', '==', user_id),
+            orderBy('date', 'desc')
+          );
           break;
       }
 
       const querySnapshot = await getDocs(q);
+
       let expenses = [];
       querySnapshot.forEach((exp) => {
         expenses.push({ ...exp.data(), id: exp.id });
@@ -74,6 +96,10 @@ export default async function handler(req, res) {
     } catch (err) {
       res.status(500).json({ error: err.message, success: false });
     }
+  } else {
+    return res
+      .status(405)
+      .json({ success: false, error: 'Wrong Method. Need a GET request' });
   }
 }
 

@@ -15,9 +15,15 @@ import {
   deleteDoc,
 } from 'firebase/firestore';
 
+import { Authentication_Middleware } from '../../../middleware/authenticate';
+
 export default async function handler(req, res) {
   const { expenseId } = req.query;
   const expRef = doc(db, 'expenses', expenseId);
+
+  Authentication_Middleware(req, res);
+
+  const user_id = req.user.id;
 
   try {
     if (req.method === 'GET') {
@@ -25,7 +31,11 @@ export default async function handler(req, res) {
       const expSnap = await getDoc(expRef);
 
       if (expSnap.exists()) {
-        res.status(200).json(expSnap.data());
+        if (expSnap.data().user_id !== user_id)
+          return res
+            .status(403)
+            .json({ success: false, error: 'UnAuthorized User' });
+        return res.status(200).json(expSnap.data());
       } else {
         throw `Expense Does Not Exist: ${expenseId}`;
       }
@@ -33,18 +43,36 @@ export default async function handler(req, res) {
       /**
        * @param {Object} payload    Updated Fields to an Expense
        */
+      const expSnap = await getDoc(expRef);
+
+      if (!expSnap.exists()) throw `Expense Does Not Exist: ${expenseId}`;
+
+      if (expSnap.data().user_id !== user_id)
+        return res
+          .status(403)
+          .json({ success: false, error: 'UnAuthorized User' });
 
       const payload = req.body;
 
-      const response = await updateDoc(expRef, payload);
+      await updateDoc(expRef, payload);
 
-      res
+      return res
         .status(200)
         .json({ success: true, message: `Expense Updated: ${expenseId}` });
     } else if (req.method === 'DELETE') {
       // TODO: DELETE AN EXPENSE
-      const response = await deleteDoc(expRef);
-      res
+      const expSnap = await getDoc(expRef);
+
+      if (!expSnap.exists()) throw `Expense Does Not Exist: ${expenseId}`;
+
+      if (expSnap.data().user_id !== user_id)
+        return res
+          .status(403)
+          .json({ success: false, error: 'UnAuthorized User' });
+
+      await deleteDoc(expRef);
+
+      return res
         .status(200)
         .json({ success: true, message: `Expense Deleted: ${expenseId}` });
     }

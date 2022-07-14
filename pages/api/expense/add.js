@@ -9,6 +9,8 @@ import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 
 import { v4 } from 'uuid';
 
+import { Authentication_Middleware } from '../../../middleware/authenticate';
+
 /**
  * Necessary Data required in the Request Body
  *
@@ -26,8 +28,12 @@ import { v4 } from 'uuid';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { image, imageName, name, business, type, date, user_id, recur } =
-      req.body;
+    // Check if User is Authenticated
+    Authentication_Middleware(req, res);
+
+    const user_id = req.user.id;
+
+    const { image, imageName, name, business, type, date, recur } = req.body;
 
     try {
       // Get Image URL from Firebase Storage

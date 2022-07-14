@@ -1,50 +1,72 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 import { collection, addDoc } from 'firebase/firestore';
+import jwt from 'jsonwebtoken';
 
 import { auth, db } from '../../../firebase/firebase';
 
+/**
+ * @route    POST api/auth/signup
+ * @desc     Create a new User
+ * @access   Public
+ */
 export default async (req, res) => {
-  try {
-    const { email, password, name } = req.body.body;
+  if (req.method === 'POST') {
+    try {
+      const { email, password, name } = req.body;
 
-    const response = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+      if (!email || !password) {
+        const error = !email ? 'No Email' : 'No Password';
+        res.status(400).json({ success: false, error });
+      }
 
-    const user = response.user;
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-    const { firstName, lastName } = getFirstAndLastNames(name);
+      const user = response.user;
 
-    const userInfo = {
-      authProvider: 'local',
-      user_id: user.uid,
-      email,
-      // Default Initial Account Settings
-      firstName,
-      lastName,
-      birthDate: new Date(),
-      mobileNumber: '',
-    };
+      const { firstName, lastName } = getFirstAndLastNames(name);
 
-    const usersRef = collection(db, 'users');
+      const userInfo = {
+        authProvider: 'local',
+        user_id: user.uid,
+        email,
+        // Default Initial Account Settings
+        firstName,
+        lastName,
+        birthDate: new Date(),
+        mobileNumber: '',
+      };
 
-    await addDoc(usersRef, userInfo);
+      const usersRef = collection(db, 'users');
 
-    const payload = {
-      user: {
-        id: user.uid,
-      },
-      success: true,
-    };
+      await addDoc(usersRef, userInfo);
 
-    // TODO: MAKE PAYLOAD INTO JWT TOKEN
+      const payload = {
+        user: {
+          id: user.uid,
+        },
+      };
 
-    res.status(201).json(payload);
-  } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+      jwt.sign(
+        payload,
+        process.env.JWT_SECRET,
+        {
+          expiresIn: 360000,
+        },
+        (err, token) => {
+          if (err) throw err;
+          res.status(201).json({ token });
+        }
+      );
+    } catch (err) {
+      res.status(500).json({ success: false, error: err.message });
+    }
+  } else {
+    res.staus(405).send('Wrong Method. Requires a POST method');
   }
 };
 
